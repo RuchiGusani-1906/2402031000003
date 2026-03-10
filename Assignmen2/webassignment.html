@@ -1,0 +1,213 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>ShopEasy - Online Store</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background-image:url("https://images.unsplash.com/photo-1607082350899-7e105aa886ae");
+background-size:cover;
+background-attachment:fixed;
+background-repeat:no-repeat;
+}
+
+/* Header */
+
+header{
+background:linear-gradient(90deg,#ff6a00,#ff2d55);
+color:white;
+text-align:center;
+padding:20px;
+}
+
+/* Navigation */
+
+nav{
+background:#333;
+text-align:center;
+padding:12px;
+}
+
+nav a{
+color:white;
+margin:15px;
+text-decoration:none;
+font-size:18px;
+}
+
+nav a:hover{
+color:#ffcc00;
+}
+
+/* Sections */
+
+.products, .cart, .contact{
+background:rgba(255,255,255,0.9);
+margin:40px;
+padding:30px;
+border-radius:10px;
+text-align:center;
+}
+
+/* Products */
+
+.product{
+display:inline-block;
+background:white;
+padding:20px;
+margin:15px;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+width:200px;
+}
+
+.price{
+color:#ff2d55;
+font-weight:bold;
+}
+
+button{
+background:#ff2d55;
+color:white;
+border:none;
+padding:10px;
+margin-top:10px;
+cursor:pointer;
+border-radius:5px;
+}
+
+button:hover{
+background:#ff6a00;
+}
+
+/* Contact */
+
+input, textarea{
+width:80%;
+padding:10px;
+margin:10px;
+border-radius:5px;
+border:1px solid gray;
+}
+
+/* Footer */
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>ShopEasy</h1>
+<p>Your Favorite Online Shopping Platform</p>
+</header>
+
+<nav>
+<a href="#">Home</a>
+<a href="#products">Products</a>
+<a href="#cart">Cart</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<!-- PRODUCTS -->
+
+<section class="products" id="products">
+
+<h2>Products</h2>
+
+<div class="product">
+<h3>Smart Watch</h3>
+<p class="price">₹3000</p>
+Quantity:
+<input type="number" id="q1" value="1" min="1">
+<br>
+<button onclick="addToCart('Smart Watch',3000,'q1')">Add to Cart</button>
+</div>
+
+<div class="product">
+<h3>Headphones</h3>
+<p class="price">₹1500</p>
+Quantity:
+<input type="number" id="q2" value="1" min="1">
+<br>
+<button onclick="addToCart('Headphones',1500,'q2')">Add to Cart</button>
+</div>
+
+<div class="product">
+<h3>Jacket</h3>
+<p class="price">₹2000</p>
+Quantity:
+<input type="number" id="q3" value="1" min="1">
+<br>
+<button onclick="addToCart('Jacket',2000,'q3')">Add to Cart</button>
+</div>
+
+</section>
+
+<!-- CART -->
+
+<section class="cart" id="cart">
+
+<h2>Your Cart</h2>
+
+<ul id="cartItems"></ul>
+
+<h3>Total Bill: ₹ <span id="total">0</span></h3>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<h2>Contact Us</h2>
+
+<input type="text" placeholder="Your Name"><br>
+<input type="email" placeholder="Email"><br>
+<textarea placeholder="Your Message"></textarea><br>
+
+<button>Send Message</button>
+
+</section>
+
+<footer>
+<p>© 2026 ShopEasy Online Store</p>
+</footer>
+
+<script>
+
+let total = 0;
+
+function addToCart(product, price, quantityId){
+
+let quantity = document.getElementById(quantityId).value;
+let cart = document.getElementById("cartItems");
+
+let item = document.createElement("li");
+item.innerHTML = product + " x " + quantity + " = ₹" + (price*quantity);
+
+cart.appendChild(item);
+
+total = total + (price*quantity);
+
+document.getElementById("total").innerText = total;
+
+}
+
+</script>
+
+</body>
+</html>
+```
